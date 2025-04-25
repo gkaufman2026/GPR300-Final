@@ -55,7 +55,7 @@ public class ShaderUI : MonoBehaviour {
             // Add More UI Elements Under Here 
             nearColor = ColorSliders(new Rect(5, 0, 80, 20), "Near Color", nearColor);
             farColor = ColorSliders(new Rect(5, 80, 80, 20), "Far Color", farColor);
-            nearFarRange = Vector2Sliders(new Rect(5, 160, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
+            nearFarRange = Float2Sliders(new Rect(5, 160, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
             alphaTreshold = FloatSlider(new Rect(5, 225, 80, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
             heightBlend = FloatSlider(new Rect(5, 250, 80, 20), "Height Blend", heightBlend, 0f, 5f);
             bottomColor = ColorSliders(new Rect(5, 300, 80, 20), "Bottom Color", bottomColor);
@@ -97,7 +97,7 @@ public class ShaderUI : MonoBehaviour {
 
         return color;
     }
-    private Vector2 Vector2Sliders(Rect screenRect, string label, Vector2 vector, float min, float max) {
+    private Vector2 Float2Sliders(Rect screenRect, string label, Vector2 vector, float min, float max) {
         GUI.Label(screenRect, label);
         screenRect.y += screenRect.height;
 
