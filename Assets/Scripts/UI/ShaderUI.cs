@@ -49,10 +49,10 @@ public class ShaderUI : MonoBehaviour {
         if (showMenu) {
             GUI.Box(new Rect(10, 40, 215, 225), "", boxStyle);
 
+            // Scroll Bar - Change last rect param (~400) to increase y-axis
             scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 215, 225), scrollPosition, new Rect(0, 0, 180, 400));
 
             // Add More UI Elements Under Here 
-
             nearColor = ColorSliders(new Rect(5, 0, 80, 20), "Near Color", nearColor);
             farColor = ColorSliders(new Rect(5, 80, 80, 20), "Far Color", farColor);
             nearFarRange = Vector2Sliders(new Rect(5, 160, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
