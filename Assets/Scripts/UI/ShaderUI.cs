@@ -117,4 +117,28 @@ public class ShaderUI : MonoBehaviour {
 
         return vector;
     }
+    private Vector2 Float3Sliders(Rect screenRect, string label, Vector3 vector, float min, float max) {
+        GUI.Label(screenRect, label);
+        screenRect.y += screenRect.height;
+
+        GUI.Label(screenRect, "X:");
+        screenRect.x += screenRect.width;
+        vector.x = GUI.HorizontalSlider(screenRect, vector.x, min, max);
+
+        screenRect.x -= screenRect.width;
+        screenRect.y += screenRect.height;
+
+        GUI.Label(screenRect, "Y:");
+        screenRect.x += screenRect.width;
+        vector.y = GUI.HorizontalSlider(screenRect, vector.y, min, max);
+
+        screenRect.x -= screenRect.width;
+        screenRect.y += screenRect.height;
+
+        GUI.Label(screenRect, "Z:");
+        screenRect.x += screenRect.width;
+        vector.z = GUI.HorizontalSlider(screenRect, vector.z, min, max);
+
+        return vector;
+    }
 }
