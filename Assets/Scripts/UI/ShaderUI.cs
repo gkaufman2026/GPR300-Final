@@ -17,7 +17,6 @@ public class ShaderUI : MonoBehaviour {
     private Color nearColor, farColor, bottomColor;
     private float alphaTreshold, heightBlend;
 
-    // @TODO - Create default values
     private void Awake() {
         // Setting Uniforms
         grassMaterial.SetColor("_NearColor", defaultNearColor);
@@ -36,7 +35,6 @@ public class ShaderUI : MonoBehaviour {
         nearFarRange = grassMaterial.GetVector("_NearFarRange");
     }
 
-    // @TODO - Finish Uniform Update Loop
     private void Update() {
         grassMaterial.SetColor("_NearColor", nearColor);
         grassMaterial.SetColor("_FarColor", farColor);
@@ -74,9 +72,29 @@ public class ShaderUI : MonoBehaviour {
             heightBlend = FloatSlider(new Rect(5, 250, 100, 20), "Height Blend", heightBlend, 0f, 1.5f);
             bottomColor = ColorSliders(new Rect(5, 275, 80, 20), "Bottom Color", bottomColor);
 
+            if (GUI.Button(new Rect(5, 360, 50, 20), "Reset")) {
+                Reset();
+            }
+
             // End of Scroll View
             GUI.EndScrollView();
         }
+    }
+
+    private void Reset() {
+        grassMaterial.SetColor("_NearColor", defaultNearColor);
+        grassMaterial.SetColor("_FarColor", defaultFarColor);
+        grassMaterial.SetColor("_BottomColor", defaultBottomColor);
+        grassMaterial.SetFloat("_AlphaThreshold", defaultAlphaThreshold);
+        grassMaterial.SetFloat("_HeightBlend", defaultHeightBlend);
+        grassMaterial.SetVector("_NearFarRange", new Vector4(defaultNearFarPlane.x, defaultNearFarPlane.y, 0, 0));
+
+        nearColor = grassMaterial.GetColor("_NearColor");
+        farColor = grassMaterial.GetColor("_FarColor");
+        bottomColor = grassMaterial.GetColor("_BottomColor");
+        alphaTreshold = grassMaterial.GetFloat("_AlphaThreshold");
+        heightBlend = grassMaterial.GetFloat("_HeightBlend");
+        nearFarRange = grassMaterial.GetVector("_NearFarRange");
     }
 
     private float FloatSlider(Rect screenRect, string labelText, float sliderValue, float min, float max) {
