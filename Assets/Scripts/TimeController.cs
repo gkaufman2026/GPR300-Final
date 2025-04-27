@@ -6,7 +6,8 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class TimeController : MonoBehaviour
 {
     [SerializeField] public GameObject DirectionalLight;
-    public float time;
+    public float secondsPerDay = 10f;
+    private float time;
     
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,8 @@ public class TimeController : MonoBehaviour
     void Update()
     {
         time = Time.deltaTime;
-        DirectionalLight.transform.Rotate(new Vector3(Mathf.Lerp(0, 360, time / 10f), 0,0));
-        if (time > 10)
+        DirectionalLight.transform.Rotate(new Vector3(Mathf.Lerp(0, 360, time / secondsPerDay), 0,0));
+        if (time > secondsPerDay)
         {
             time = 0;
         }
