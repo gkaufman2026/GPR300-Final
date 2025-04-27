@@ -17,6 +17,8 @@ public class ShaderUI : MonoBehaviour {
     private Color nearColor, farColor, bottomColor;
     private float alphaTreshold, heightBlend;
 
+    private GameObject cube;
+
     // @TODO - Create default values
     private void Awake() {
         // Setting Uniforms
@@ -36,7 +38,10 @@ public class ShaderUI : MonoBehaviour {
         nearFarRange = grassMaterial.GetVector("_NearFarRange");
     }
 
-    // @TODO - Finish Uniform Update Loop
+    private void Start() {
+        cube.GetComponent<MeshRenderer>().material.color = Color.red;
+    }
+
     private void Update() {
         grassMaterial.SetColor("_NearColor", nearColor);
         grassMaterial.SetColor("_FarColor", farColor);
@@ -133,6 +138,7 @@ public class ShaderUI : MonoBehaviour {
 
         return vector;
     }
+
     private Vector2 Float3Sliders(Rect screenRect, string label, Vector3 vector, float min, float max) {
         GUI.Label(screenRect, label);
         screenRect.y += screenRect.height;
