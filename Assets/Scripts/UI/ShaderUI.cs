@@ -7,6 +7,8 @@ public class ShaderUI : MonoBehaviour {
     [SerializeField] private Color defaultNearColor;
     [SerializeField] private Color defaultFarColor;
     [SerializeField] private Color defaultBottomColor;
+    [SerializeField] private float defaultAlphaThreshold, defaultHeightBlend;
+    [SerializeField] private Vector2 defaultNearFarPlane;
 
     private bool showMenu = true;
     private Vector2 scrollPosition;
@@ -17,10 +19,21 @@ public class ShaderUI : MonoBehaviour {
 
     // @TODO - Create default values
     private void Awake() {
+        // Setting Uniforms
         grassMaterial.SetColor("_NearColor", defaultNearColor);
         grassMaterial.SetColor("_FarColor", defaultFarColor);
         grassMaterial.SetColor("_BottomColor", defaultBottomColor);
-        //grassMaterial.SetVector("_BottomColor", defaultBottomColor);
+        grassMaterial.SetFloat("_AlphaThreshold", defaultAlphaThreshold);
+        grassMaterial.SetFloat("_HeightBlend", defaultHeightBlend);
+        grassMaterial.SetVector("_NearFarRange", new Vector4(defaultNearFarPlane.x, defaultNearFarPlane.y, 0, 0));
+
+        // Setting Default for Sliders
+        nearColor = grassMaterial.GetColor("_NearColor");
+        farColor = grassMaterial.GetColor("_FarColor");
+        bottomColor = grassMaterial.GetColor("_BottomColor");
+        alphaTreshold = grassMaterial.GetFloat("_AlphaThreshold");
+        heightBlend = grassMaterial.GetFloat("_HeightBlend");
+        nearFarRange = grassMaterial.GetVector("_NearFarRange");
     }
 
     // @TODO - Finish Uniform Update Loop
@@ -31,6 +44,7 @@ public class ShaderUI : MonoBehaviour {
         grassMaterial.SetFloat("_AlphaThreshold", alphaTreshold);
         grassMaterial.SetFloat("_HeightBlend", heightBlend);
         grassMaterial.SetColor("_BottomColor", bottomColor);
+        grassMaterial.SetVector("_NearFarRange", nearFarRange);
     }
 
     void OnGUI() {
@@ -56,9 +70,9 @@ public class ShaderUI : MonoBehaviour {
             nearColor = ColorSliders(new Rect(5, 0, 80, 20), "Near Color", nearColor);
             farColor = ColorSliders(new Rect(5, 80, 80, 20), "Far Color", farColor);
             nearFarRange = Float2Sliders(new Rect(5, 160, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
-            alphaTreshold = FloatSlider(new Rect(5, 225, 80, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
-            heightBlend = FloatSlider(new Rect(5, 250, 80, 20), "Height Blend", heightBlend, 0f, 5f);
-            bottomColor = ColorSliders(new Rect(5, 300, 80, 20), "Bottom Color", bottomColor);
+            alphaTreshold = FloatSlider(new Rect(5, 225, 100, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
+            heightBlend = FloatSlider(new Rect(5, 250, 100, 20), "Height Blend", heightBlend, 0f, 1.5f);
+            bottomColor = ColorSliders(new Rect(5, 275, 80, 20), "Bottom Color", bottomColor);
 
             // End of Scroll View
             GUI.EndScrollView();
@@ -73,6 +87,7 @@ public class ShaderUI : MonoBehaviour {
         sliderValue = GUI.HorizontalSlider(screenRect, sliderValue, min, max);
         return sliderValue;
     }
+
     private Color ColorSliders(Rect screenRect, string label, Color color) {
         GUI.Label(screenRect, label);
         screenRect.y += screenRect.height;
@@ -97,6 +112,7 @@ public class ShaderUI : MonoBehaviour {
 
         return color;
     }
+
     private Vector2 Float2Sliders(Rect screenRect, string label, Vector2 vector, float min, float max) {
         GUI.Label(screenRect, label);
         screenRect.y += screenRect.height;
