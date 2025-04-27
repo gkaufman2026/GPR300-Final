@@ -19,7 +19,6 @@ public class TimeController : MonoBehaviour
     {
         time = Time.deltaTime;
         DirectionalLight.transform.Rotate(new Vector3(Mathf.Lerp(0, 360, time / 10f), 0,0));
-        Debug.Log(Mathf.Lerp(0, 360, time / 10f));
         if (time > 10)
         {
             time = 0;
