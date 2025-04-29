@@ -10,14 +10,18 @@ public class ShaderUI : MonoBehaviour {
     [SerializeField] private float defaultAlphaThreshold, defaultHeightBlend;
     [SerializeField] private Vector2 defaultNearFarPlane;
 
+    [Header("Time Contrller")]
+    [SerializeField] private TimeController timeController;
+
     private bool showMenu = true;
     private Vector2 scrollPosition;
 
     private Vector2 nearFarRange;
     private Color nearColor, farColor, bottomColor;
     private float alphaTreshold, heightBlend;
+    private float dayCycleSlider;
+    private float defaultDayDuration;
 
-    // @TODO - Create default values
     private void Awake() {
         // Setting Uniforms
         grassMaterial.SetColor("_NearColor", defaultNearColor);
@@ -34,6 +38,9 @@ public class ShaderUI : MonoBehaviour {
         alphaTreshold = grassMaterial.GetFloat("_AlphaThreshold");
         heightBlend = grassMaterial.GetFloat("_HeightBlend");
         nearFarRange = grassMaterial.GetVector("_NearFarRange");
+
+        dayCycleSlider = timeController.GetSecondsPerDay();
+        defaultDayDuration = timeController.GetSecondsPerDay();
     }
 
     private void Update() {
@@ -63,7 +70,7 @@ public class ShaderUI : MonoBehaviour {
             GUI.Box(new Rect(10, 40, 215, 225), "", boxStyle);
 
             // Scroll Bar - Change last rect param (~400) to increase y-axis
-            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 215, 225), scrollPosition, new Rect(0, 0, 180, 400));
+            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 215, 225), scrollPosition, new Rect(0, 0, 180, 450));
 
             // Add More UI Elements Under Here 
             nearColor = ColorSliders(new Rect(5, 0, 80, 20), "Near Color", nearColor);
@@ -73,7 +80,11 @@ public class ShaderUI : MonoBehaviour {
             heightBlend = FloatSlider(new Rect(5, 250, 100, 20), "Height Blend", heightBlend, 0f, 1.5f);
             bottomColor = ColorSliders(new Rect(5, 275, 80, 20), "Bottom Color", bottomColor);
 
-            if (GUI.Button(new Rect(5, 360, 50, 20), "Reset")) {
+            // @TODO - Implement a style to distinguish between others
+            GUI.Label(new Rect(5, 360, 100, 20), "Day Night Cycle");
+            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 385, 100, 20), "Sec Per Day", dayCycleSlider, 0.0f, 20f));
+
+            if (GUI.Button(new Rect(5, 415, 50, 20), "Reset")) {
                 Reset();
             }
 
@@ -96,6 +107,9 @@ public class ShaderUI : MonoBehaviour {
         alphaTreshold = grassMaterial.GetFloat("_AlphaThreshold");
         heightBlend = grassMaterial.GetFloat("_HeightBlend");
         nearFarRange = grassMaterial.GetVector("_NearFarRange");
+
+        dayCycleSlider = defaultDayDuration;
+        timeController.SetSecondsPerDay(dayCycleSlider);
     }
 
     private float FloatSlider(Rect screenRect, string labelText, float sliderValue, float min, float max) {
