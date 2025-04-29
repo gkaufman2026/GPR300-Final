@@ -38,10 +38,6 @@ public class ShaderUI : MonoBehaviour {
         nearFarRange = grassMaterial.GetVector("_NearFarRange");
     }
 
-    private void Start() {
-        cube.GetComponent<MeshRenderer>().material.color = Color.red;
-    }
-
     private void Update() {
         grassMaterial.SetColor("_NearColor", nearColor);
         grassMaterial.SetColor("_FarColor", farColor);
