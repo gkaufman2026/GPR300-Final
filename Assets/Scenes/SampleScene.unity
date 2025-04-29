@@ -529,6 +529,10 @@ PrefabInstance:
       value: 0.21568628
       objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: customStyle.m_Font
+      value: 
+      objectReference: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultHeightBlend
       value: 0.75
       objectReference: {fileID: 0}
@@ -563,6 +567,18 @@ PrefabInstance:
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultNearFarPlane.y
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: customStyle.m_Normal.m_TextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: customStyle.m_Normal.m_TextColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: customStyle.m_Normal.m_TextColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2161841544367761651, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: m_Name

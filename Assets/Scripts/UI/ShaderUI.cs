@@ -63,6 +63,10 @@ public class ShaderUI : MonoBehaviour {
             fontSize = 12,
             fontStyle = FontStyle.Normal
         };
+        GUIStyle headerStyle = new(GUI.skin.label) {
+            fontSize = 15,
+            fontStyle = FontStyle.Bold,
+        };
 
         showMenu = GUI.Toggle(new Rect(10, 10, 25, 25), showMenu, "=", buttonStyle);
 
@@ -70,21 +74,23 @@ public class ShaderUI : MonoBehaviour {
             GUI.Box(new Rect(10, 40, 215, 225), "", boxStyle);
 
             // Scroll Bar - Change last rect param (~400) to increase y-axis
-            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 215, 225), scrollPosition, new Rect(0, 0, 180, 450));
+            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 225, 225), scrollPosition, new Rect(0, 0, 180, 600));
+
+            GUI.Label(new Rect(5, 0, 120, 25), "Grass Uniforms", headerStyle);
 
             // Add More UI Elements Under Here 
-            nearColor = ColorSliders(new Rect(5, 0, 80, 20), "Near Color", nearColor);
-            farColor = ColorSliders(new Rect(5, 80, 80, 20), "Far Color", farColor);
-            nearFarRange = Float2Sliders(new Rect(5, 160, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
-            alphaTreshold = FloatSlider(new Rect(5, 225, 100, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
-            heightBlend = FloatSlider(new Rect(5, 250, 100, 20), "Height Blend", heightBlend, 0f, 1.5f);
-            bottomColor = ColorSliders(new Rect(5, 275, 80, 20), "Bottom Color", bottomColor);
+            nearColor = ColorSliders(new Rect(5, 25, 80, 20), "Near Color", nearColor);
+            farColor = ColorSliders(new Rect(5, 105, 80, 20), "Far Color", farColor);
+            nearFarRange = Float2Sliders(new Rect(5, 185, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
+            alphaTreshold = FloatSlider(new Rect(5, 250, 100, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
+            heightBlend = FloatSlider(new Rect(5, 275, 100, 20), "Height Blend", heightBlend, 0f, 1.5f);
+            bottomColor = ColorSliders(new Rect(5, 300, 80, 20), "Bottom Color", bottomColor);
 
             // @TODO - Implement a style to distinguish between others
-            GUI.Label(new Rect(5, 360, 100, 20), "Day Night Cycle");
-            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 385, 100, 20), "Sec Per Day", dayCycleSlider, 0.0f, 20f));
+            GUI.Label(new Rect(5, 385, 120, 25), "Day Night Cycle", headerStyle);
+            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 410, 100, 20), "Sec Per Day", dayCycleSlider, 0.0f, 20f));
 
-            if (GUI.Button(new Rect(5, 415, 50, 20), "Reset")) {
+            if (GUI.Button(new Rect(5, 435, 50, 20), "Reset")) {
                 Reset();
             }
 
