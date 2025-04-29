@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   fastMovementSpeed: 25
-  sensitivity: 3
+  sensitivity: {x: 200, y: 200}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

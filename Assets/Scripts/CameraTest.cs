@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public class CameraTest : MonoBehaviour {
-    public float movementSpeed = 10f, fastMovementSpeed = 25f, sensitivity = 3f;
+    public float movementSpeed = 10f, fastMovementSpeed = 25f;
+    public Vector2 sensitivity = new(100f, 125f);
     private bool isLooking = false;
 
     private Vector2 rot;
@@ -27,8 +28,8 @@ public class CameraTest : MonoBehaviour {
         }
 
         if (isLooking) {
-            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity.x * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * sensitivity.y * Time.deltaTime;
 
             rot.x -= mouseY;
             rot.y += mouseX;
