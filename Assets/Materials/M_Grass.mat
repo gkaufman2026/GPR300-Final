@@ -98,6 +98,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _PressureRadius: 1.06
+    - _PressureStrength: 8.6
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SmoothnessTextureChannel: 0
@@ -113,6 +115,7 @@ Material:
     - _WindNoiseSpeed: 1
     - _WindSpeed: 0.5
     - _ZWrite: 1
+    - _isWindBlowing: 0
     m_Colors:
     - _BottomColor: {r: 0, g: 0.46274507, b: 0.35294116, a: 0}
     - _Color: {r: 0.376859, g: 1, b: 0.07075471, a: 1}

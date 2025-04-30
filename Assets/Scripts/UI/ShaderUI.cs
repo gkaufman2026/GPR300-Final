@@ -67,6 +67,8 @@ public class ShaderUI : MonoBehaviour {
     private Color shadowColor;
     private Vector2 windNoiseScale, windNoiseContrast;
 
+    [SerializeField] private GameObject capsule;
+
     private void Awake() {
         // Setting Uniforms
         grassMaterial.SetColor("_NearColor", defaultNearColor);
@@ -121,6 +123,8 @@ public class ShaderUI : MonoBehaviour {
         grassMaterial.SetFloat("_WindNoiseSpeed", windNoiseSpeed);
         grassMaterial.SetVector("_WindNoiseContrast", windNoiseContrast);
         grassMaterial.SetFloat("_WindHeight", windHeight);
+
+        grassMaterial.SetVector("_PressurePosition", capsule.transform.position);
     }
 
     void OnGUI() {
