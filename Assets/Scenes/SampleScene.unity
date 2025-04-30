@@ -517,6 +517,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 705507997}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultFarColor.b
       value: 0.34509805
       objectReference: {fileID: 0}
@@ -527,6 +531,10 @@ PrefabInstance:
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultFarColor.r
       value: 0.21568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindHeight
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: customStyle.m_Font
@@ -561,6 +569,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultShadowColor.b
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultShadowColor.r
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindIntensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultAlphaThreshold
       value: 0.25
       objectReference: {fileID: 0}
@@ -571,6 +591,26 @@ PrefabInstance:
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultNearFarPlane.y
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindContrast.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindNoiseSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultTerrainStrength
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindNoiseScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindNoiseScale.y
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: customStyle.m_Normal.m_TextColor.b
