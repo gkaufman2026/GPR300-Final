@@ -179,7 +179,7 @@ public class ShaderUI : MonoBehaviour {
             windNoiseContrast = Float2Sliders(new Rect(5, 265, 120, 20), "Wind Noise Contrast", windNoiseContrast, 0f, 4f);
 
             GUI.Label(new Rect(5, 330, 120, 25), "Day Night Cycle", headerStyle);
-            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 355, 100, 20), "Sec Per Day", dayCycleSlider, 0.0f, 20f));
+            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 355, 100, 20), "Sec Per Day", dayCycleSlider, 0.2f, 20f));
 
             if (GUI.Button(new Rect(5, 385, 50, 20), "Reset")) {
                 Reset();
