@@ -22,6 +22,8 @@ public class ShaderUI : MonoBehaviour {
     private float dayCycleSlider;
     private float defaultDayDuration;
 
+    [SerializeField] private GameObject capsule;
+
     private void Awake() {
         // Setting Uniforms
         grassMaterial.SetColor("_NearColor", defaultNearColor);
@@ -51,6 +53,8 @@ public class ShaderUI : MonoBehaviour {
         grassMaterial.SetFloat("_HeightBlend", heightBlend);
         grassMaterial.SetColor("_BottomColor", bottomColor);
         grassMaterial.SetVector("_NearFarRange", nearFarRange);
+
+        grassMaterial.SetVector("_PressurePosition", capsule.transform.position);
     }
 
     void OnGUI() {
