@@ -51,6 +51,7 @@ public class ShaderUI : MonoBehaviour {
 
     [Header("Time Contrller")]
     [SerializeField] private TimeController timeController;
+    private bool isDayTimeCycling;
 
     private bool showMenu = true;
     private Vector2 scrollPosition;
@@ -104,6 +105,7 @@ public class ShaderUI : MonoBehaviour {
 
         dayCycleSlider = timeController.GetSecondsPerDay();
         defaultDayDuration = timeController.GetSecondsPerDay();
+        isDayTimeCycling = timeController.GetIsCycling();
     }
 
     private void Update() {
@@ -148,7 +150,7 @@ public class ShaderUI : MonoBehaviour {
             GUI.Box(new Rect(10, 40, 250, 225), "", boxStyle);
 
             // Scroll Bar - Change last rect param (~400) to increase y-axis
-            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 260, 225), scrollPosition, new Rect(0, 0, 180, 425));
+            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 260, 225), scrollPosition, new Rect(0, 0, 180, 450));
 
             GUI.Label(new Rect(5, 0, 120, 25), "Grass Uniforms", headerStyle);
 
@@ -179,9 +181,13 @@ public class ShaderUI : MonoBehaviour {
             windNoiseContrast = Float2Sliders(new Rect(5, 265, 120, 20), "Wind Noise Contrast", windNoiseContrast, 0f, 4f);
 
             GUI.Label(new Rect(5, 330, 120, 25), "Day Night Cycle", headerStyle);
-            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 355, 100, 20), "Sec Per Day", dayCycleSlider, 0.2f, 20f));
 
-            if (GUI.Button(new Rect(5, 385, 50, 20), "Reset")) {
+            isDayTimeCycling = LabelledBool(new Rect(5, 355, 100, 20), "Is Day-Night Active", isDayTimeCycling);
+            timeController.SetIsCycling(isDayTimeCycling);
+
+            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 385, 120, 20), "Sec Per Day", dayCycleSlider, 0.2f, 20f));
+
+            if (GUI.Button(new Rect(5, 415, 50, 20), "Reset")) {
                 Reset();
             }
 
@@ -332,7 +338,7 @@ public class ShaderUI : MonoBehaviour {
         return vector;
     }
 
-    private Vector2 Float3Sliders(Rect screenRect, string label, Vector3 vector, float min, float max) {
+    private Vector3 Float3Sliders(Rect screenRect, string label, Vector3 vector, float min, float max) {
         GUI.Label(screenRect, label);
         screenRect.y += screenRect.height;
 
@@ -355,5 +361,14 @@ public class ShaderUI : MonoBehaviour {
         vector.z = GUI.HorizontalSlider(screenRect, vector.z, min, max);
 
         return vector;
+    }
+
+    private bool LabelledBool(Rect screenRect, string labelText, bool val) {
+        GUI.Label(screenRect, labelText);
+        screenRect.x += screenRect.width;
+
+        val = GUI.Toggle(screenRect, val, "");
+
+        return val;
     }
 }
