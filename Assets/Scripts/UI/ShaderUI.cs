@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ShaderUI : MonoBehaviour {
     [SerializeField] private Material grassMaterial;
+    [SerializeField] private Light timeLight;
 
     [Header("Default States")]
     [SerializeField] private Color defaultNearColor;
@@ -20,11 +21,41 @@ public class ShaderUI : MonoBehaviour {
     [SerializeField] private Vector2 defaultWindContrast;
     [SerializeField] private float defaultWindHeight;
 
+    [Header("Season")]
+    [SerializeField] private Color summerNear;
+    [SerializeField] private Color summerFar;
+    [SerializeField] private Color summerBottom;
+    [SerializeField] private Color summerShadow;
+    [SerializeField] private Color summerLight;
+
+    [Space]
+    [SerializeField] private Color fallNear;
+    [SerializeField] private Color fallFar;
+    [SerializeField] private Color fallBottom;
+    [SerializeField] private Color fallShadow;
+    [SerializeField] private Color fallLight;
+
+    [Space]
+    [SerializeField] private Color winterNear;
+    [SerializeField] private Color winterFar;
+    [SerializeField] private Color winterBottom;
+    [SerializeField] private Color winterShadow;
+    [SerializeField] private Color winterLight;
+
+    [Space]
+    [SerializeField] private Color springNear;
+    [SerializeField] private Color springFar;
+    [SerializeField] private Color springBottom;
+    [SerializeField] private Color springShadow;
+    [SerializeField] private Color springLight;
+
     [Header("Time Contrller")]
     [SerializeField] private TimeController timeController;
 
     private bool showMenu = true;
     private Vector2 scrollPosition;
+
+    private bool seasonMenu = false;
 
     private Vector2 nearFarRange;
     private Color nearColor, farColor, bottomColor;
@@ -113,37 +144,98 @@ public class ShaderUI : MonoBehaviour {
             GUI.Box(new Rect(10, 40, 250, 225), "", boxStyle);
 
             // Scroll Bar - Change last rect param (~400) to increase y-axis
-            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 260, 225), scrollPosition, new Rect(0, 0, 180, 1000));
+            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 260, 225), scrollPosition, new Rect(0, 0, 180, 425));
 
             GUI.Label(new Rect(5, 0, 120, 25), "Grass Uniforms", headerStyle);
 
             // Add More UI Elements Under Here 
-            nearColor = ColorSliders(new Rect(5, 25, 80, 20), "Near Color", nearColor);
-            farColor = ColorSliders(new Rect(5, 105, 80, 20), "Far Color", farColor);
-            nearFarRange = Float2Sliders(new Rect(5, 185, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
-            alphaTreshold = FloatSlider(new Rect(5, 250, 100, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
-            heightBlend = FloatSlider(new Rect(5, 275, 100, 20), "Height Blend", heightBlend, 0f, 1.5f);
-            bottomColor = ColorSliders(new Rect(5, 300, 80, 20), "Bottom Color", bottomColor);
 
-            terrainStrength = FloatSlider(new Rect(5, 385, 100, 20), "Terrain Strength", terrainStrength, 0, 1);
-            shadowColor = ColorSliders(new Rect(5, 410, 80, 20), "Shadow Color", shadowColor);
-            windSpeed = FloatSlider(new Rect(5, 495, 100, 20), "Wind Speed", windSpeed, 0f, 1f);
-            windIntensity = FloatSlider(new Rect(5, 515, 100, 20), "Wind Intensity", windIntensity, 0f, 1f);
-            windNoiseScale = Float2Sliders(new Rect(5, 535, 120, 20), "Wind Noise Scale", windNoiseScale, 0f, 200f);
-            windNoiseSpeed = FloatSlider(new Rect(5, 600, 120, 20), "Wind Noise Speed", windNoiseSpeed, -10f, 20f);
-            windNoiseContrast = Float2Sliders(new Rect(5, 625, 120, 20), "Wind Noise Contrast", windNoiseContrast, 0f, 4f);
-            windHeight = FloatSlider(new Rect(5, 690, 120, 20), "Wind Height", windHeight, 0f, 1f);
+            seasonMenu = GUI.Toggle(new Rect(5, 25, 120, 20), seasonMenu, "Seasons", buttonStyle);
 
-            GUI.Label(new Rect(5, 715, 120, 25), "Day Night Cycle", headerStyle);
-            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 740, 100, 20), "Sec Per Day", dayCycleSlider, 0.0f, 20f));
+            if (seasonMenu) {
+                if (GUI.Button(new Rect(5, 50, 80, 20), "Summer")) {
+                    SetSummerColors();
+                }
+                if (GUI.Button(new Rect(90, 50, 80, 20), "Fall")) {
+                    SetFallColors();
+                }
+                if (GUI.Button(new Rect(5, 75, 80, 20), "Winter")) {
+                    SetWinterColors();
+                }
+                if (GUI.Button(new Rect(90, 75, 80, 20), "Spring")) {
+                    SetSpringColors();
+                }
+            }
 
-            if (GUI.Button(new Rect(5, 775, 50, 20), "Reset")) {
+            nearFarRange = Float2Sliders(new Rect(5, 100, 100, 20), "Near Far Range", nearFarRange, 0f, 20f);
+            alphaTreshold = FloatSlider(new Rect(5, 165, 100, 20), "Alpha Threshold", alphaTreshold, 0f, 1f);
+            windSpeed = FloatSlider(new Rect(5, 190, 100, 20), "Wind Speed", windSpeed, 0f, 1f);
+            windIntensity = FloatSlider(new Rect(5, 215, 100, 20), "Wind Intensity", windIntensity, 0f, 1f);
+            windNoiseSpeed = FloatSlider(new Rect(5, 240, 120, 20), "Wind Noise Speed", windNoiseSpeed, -10f, 20f);
+            windNoiseContrast = Float2Sliders(new Rect(5, 265, 120, 20), "Wind Noise Contrast", windNoiseContrast, 0f, 4f);
+
+            GUI.Label(new Rect(5, 330, 120, 25), "Day Night Cycle", headerStyle);
+            timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 355, 100, 20), "Sec Per Day", dayCycleSlider, 0.0f, 20f));
+
+            if (GUI.Button(new Rect(5, 385, 50, 20), "Reset")) {
                 Reset();
             }
 
             // End of Scroll View
             GUI.EndScrollView();
         }
+    }
+
+    private void SetSpringColors() {
+        grassMaterial.SetColor("_NearColor", springNear);
+        grassMaterial.SetColor("_FarColor", springFar);
+        grassMaterial.SetColor("_BottomColor", springBottom);
+        grassMaterial.SetColor("_ShadowColor", springShadow);
+        timeLight.color = springLight;
+
+        nearColor = grassMaterial.GetColor("_NearColor");
+        farColor = grassMaterial.GetColor("_FarColor");
+        bottomColor = grassMaterial.GetColor("_BottomColor");
+        shadowColor = grassMaterial.GetColor("_ShadowColor");
+    }
+
+    private void SetWinterColors() {
+        grassMaterial.SetColor("_NearColor", winterNear);
+        grassMaterial.SetColor("_FarColor", winterFar);
+        grassMaterial.SetColor("_BottomColor", winterBottom);
+        grassMaterial.SetColor("_ShadowColor", winterShadow);
+        timeLight.color = winterLight;
+
+        nearColor = grassMaterial.GetColor("_NearColor");
+        farColor = grassMaterial.GetColor("_FarColor");
+        bottomColor = grassMaterial.GetColor("_BottomColor");
+        shadowColor = grassMaterial.GetColor("_ShadowColor");
+    }
+
+    private void SetFallColors() {
+        grassMaterial.SetColor("_NearColor", fallNear);
+        grassMaterial.SetColor("_FarColor", fallFar);
+        grassMaterial.SetColor("_BottomColor", fallBottom);
+        grassMaterial.SetColor("_ShadowColor", fallShadow);
+        timeLight.color = fallLight;
+
+        nearColor = grassMaterial.GetColor("_NearColor");
+        farColor = grassMaterial.GetColor("_FarColor");
+        bottomColor = grassMaterial.GetColor("_BottomColor");
+        shadowColor = grassMaterial.GetColor("_ShadowColor");
+    }
+
+    private void SetSummerColors() {
+        grassMaterial.SetColor("_NearColor", summerNear);
+        grassMaterial.SetColor("_FarColor", summerFar);
+        grassMaterial.SetColor("_BottomColor", summerBottom);
+        grassMaterial.SetColor("_ShadowColor", summerShadow);
+        timeLight.color = summerLight;
+
+        nearColor = grassMaterial.GetColor("_NearColor");
+        farColor = grassMaterial.GetColor("_FarColor");
+        bottomColor = grassMaterial.GetColor("_BottomColor");
+        shadowColor = grassMaterial.GetColor("_ShadowColor");
     }
 
     private void Reset() {

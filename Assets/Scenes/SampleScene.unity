@@ -152,7 +152,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.98039216, b: 0.7882353, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -509,13 +509,261 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 1052146033}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallFar.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallFar.g
+      value: 0.3185841
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallFar.r
+      value: 0.5849056
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: timeLight
+      value: 
+      objectReference: {fileID: 705507994}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallNear.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallNear.g
+      value: 0.5130292
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallNear.r
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallLight.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallLight.b
+      value: 0.7411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallLight.g
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallLight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springFar.b
+      value: 0.21568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springFar.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springFar.r
+      value: 0.35854208
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerFar.b
+      value: 0.34509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerFar.g
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerFar.r
+      value: 0.21568629
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterFar.b
+      value: 0.6698113
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterFar.g
+      value: 0.54791594
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterFar.r
+      value: 0.31910822
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallBottom.b
+      value: 0.16180134
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallBottom.g
+      value: 0.24594939
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallBottom.r
+      value: 0.33962262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallShadow.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallShadow.g
+      value: 0.1364928
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: fallShadow.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springNear.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springNear.r
+      value: 0.57203794
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerNear.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerNear.r
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterNear.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterNear.g
+      value: 0.95690787
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterNear.r
+      value: 0.7783019
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: grassMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 8f5b746b5be1f4848b25c6a245ebfec7, type: 2}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springLight.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springLight.b
+      value: 0.7882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springLight.g
+      value: 0.98039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springLight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerLight.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerLight.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerLight.g
+      value: 0.8745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerLight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterLight.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterLight.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterLight.g
+      value: 0.95686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterLight.r
+      value: 0.8352941
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springBottom.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springBottom.g
+      value: 0.4627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springBottom.r
+      value: 0.16055202
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springShadow.b
+      value: 0.4528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springShadow.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: springShadow.r
+      value: 0.39896092
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerBottom.b
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerBottom.g
+      value: 0.46274513
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerShadow.b
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerShadow.g
+      value: 0.31667748
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: summerShadow.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: timeController
       value: 
       objectReference: {fileID: 705507997}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterBottom.b
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterBottom.g
+      value: 0.31543446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterBottom.r
+      value: 0.1975792
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterShadow.b
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: winterShadow.r
+      value: 0.20784315
+      objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultWindSpeed
       value: 0.5
