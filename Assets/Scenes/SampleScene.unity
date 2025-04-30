@@ -845,8 +845,12 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
+      propertyPath: defaultWindContrast.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultWindContrast.y
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1276652026801886587, guid: eb0b0a0ac3ef07b4a819cff58d9eeb18, type: 3}
       propertyPath: defaultWindNoiseSpeed
