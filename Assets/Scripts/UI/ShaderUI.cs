@@ -53,6 +53,8 @@ public class ShaderUI : MonoBehaviour {
     [SerializeField] private TimeController timeController;
     private bool isDayTimeCycling;
 
+    private int isTrample = 1;
+
     private bool showMenu = true;
     private Vector2 scrollPosition;
 
@@ -86,6 +88,8 @@ public class ShaderUI : MonoBehaviour {
         grassMaterial.SetFloat("_WindNoiseSpeed", defaultWindNoiseSpeed);
         grassMaterial.SetVector("_WindNoiseContrast", new Vector4(defaultWindContrast.x, defaultWindContrast.y, 0, 0));
         grassMaterial.SetFloat("_WindHeight", defaultWindHeight);
+        grassMaterial.SetInt("_isWindBlowing", 1);
+        
 
         // Setting Default for Sliders
         nearColor = grassMaterial.GetColor("_NearColor");
@@ -102,10 +106,12 @@ public class ShaderUI : MonoBehaviour {
         windNoiseSpeed = grassMaterial.GetFloat("_WindNoiseSpeed");
         windNoiseContrast = grassMaterial.GetVector("_WindNoiseContrast");
         windHeight = grassMaterial.GetFloat("_WindHeight");
+        isTrample = grassMaterial.GetInt("_isWindBlowing");
 
         dayCycleSlider = timeController.GetSecondsPerDay();
         defaultDayDuration = timeController.GetSecondsPerDay();
         isDayTimeCycling = timeController.GetIsCycling();
+        
     }
 
     private void Update() {
@@ -122,9 +128,11 @@ public class ShaderUI : MonoBehaviour {
         grassMaterial.SetFloat("_WindSpeed", windSpeed);
         grassMaterial.SetFloat("_WindIntensity", windIntensity);
         grassMaterial.SetVector("_WindNoiseScale", windNoiseScale);
+        grassMaterial.SetInteger("_isWindBlowing", isTrample);
         grassMaterial.SetFloat("_WindNoiseSpeed", windNoiseSpeed);
         grassMaterial.SetVector("_WindNoiseContrast", windNoiseContrast);
         grassMaterial.SetFloat("_WindHeight", windHeight);
+
 
         grassMaterial.SetVector("_PressurePosition", capsule.transform.position);
     }
@@ -150,7 +158,7 @@ public class ShaderUI : MonoBehaviour {
             GUI.Box(new Rect(10, 40, 250, 225), "", boxStyle);
 
             // Scroll Bar - Change last rect param (~400) to increase y-axis
-            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 260, 225), scrollPosition, new Rect(0, 0, 180, 450));
+            scrollPosition = GUI.BeginScrollView(new Rect(15, 40, 260, 225), scrollPosition, new Rect(0, 0, 180, 475));
 
             GUI.Label(new Rect(5, 0, 120, 25), "Grass Uniforms", headerStyle);
 
@@ -181,13 +189,28 @@ public class ShaderUI : MonoBehaviour {
             windNoiseContrast = Float2Sliders(new Rect(5, 265, 120, 20), "Wind Noise Contrast", windNoiseContrast, 0f, 4f);
 
             GUI.Label(new Rect(5, 330, 120, 25), "Day Night Cycle", headerStyle);
-
             isDayTimeCycling = LabelledBool(new Rect(5, 355, 100, 20), "Is Day-Night Active", isDayTimeCycling);
             timeController.SetIsCycling(isDayTimeCycling);
 
             timeController.SetSecondsPerDay(dayCycleSlider = FloatSlider(new Rect(5, 385, 120, 20), "Sec Per Day", dayCycleSlider, 0.2f, 20f));
 
-            if (GUI.Button(new Rect(5, 415, 50, 20), "Reset")) {
+
+            GUI.Label(new Rect(5, 405, 120, 25), "Grass Trampling", headerStyle);
+
+            if (GUI.Button(new Rect(5, 425, 115, 20), "Toggle Trample"))
+            {
+                if(isTrample == 0)
+                {
+                    isTrample = 1;
+                }
+                else
+                {
+                    isTrample = 0;
+                }
+            }
+            
+
+            if (GUI.Button(new Rect(5, 450, 50, 20), "Reset")) {
                 Reset();
             }
 
@@ -263,6 +286,7 @@ public class ShaderUI : MonoBehaviour {
         grassMaterial.SetFloat("_WindNoiseSpeed", defaultWindNoiseSpeed);
         grassMaterial.SetVector("_WindNoiseContrast", new Vector4(defaultWindContrast.x, defaultWindContrast.y, 0, 0));
         grassMaterial.SetFloat("_WindHeight", defaultWindHeight);
+        grassMaterial.SetInteger("_isWindBlowing", isTrample);
 
         nearColor = grassMaterial.GetColor("_NearColor");
         farColor = grassMaterial.GetColor("_FarColor");
@@ -278,6 +302,7 @@ public class ShaderUI : MonoBehaviour {
         windNoiseSpeed = grassMaterial.GetFloat("_WindNoiseSpeed");
         windNoiseContrast = grassMaterial.GetVector("_WindNoiseContrast");
         windHeight = grassMaterial.GetFloat("_WindHeight");
+        grassMaterial.SetInteger("_isWindBlowing", 1);
 
         dayCycleSlider = defaultDayDuration;
         timeController.SetSecondsPerDay(dayCycleSlider);
